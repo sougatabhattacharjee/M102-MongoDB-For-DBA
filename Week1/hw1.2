@@ -1,0 +1,20 @@
+HOMEWORK: HOMEWORK 1.2
+
+Download the file products.json from education.mongodb.com. Take a look at its content.
+
+Now, import its contents into MongoDB, into a database called "pcat" and a collection called "products". Use the mongoimport utility to do this.
+
+When done, run this query in the mongo shell:
+db.products.find({type:"case"}).count()
+
+>use pcat     //database will be created if it not exists!
+
+from the terminal (not from the shell) type
+$ mongoimport --db pcat --collection products < ~/mongodb_course/M102DBA/Week1/products.3eb7cd1a9633.json
+//it will create products collection under database pcat and import the json data into the collection
+
+now back to mongo shell, type
+> db.products.find({type:"case"}).count()
+3
+
+
