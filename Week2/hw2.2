@@ -1,0 +1,18 @@
+1. Insert the doc into products collection
+db.products.insert({ "_id" : "ac9", "name" : "AC9 Phone", "brand" : "ACME", "type" : "phone", "price" : 333, "warranty_years" : 0.25, "available" : true })
+
+
+2. Next, load into a shell variable the object corresponding to _id : ObjectId("507d95d5719dbef170f15c00")
+var l = db.products.find({_id : ObjectId("507d95d5719dbef170f15c00")})
+
+3. Then change term_years to 3 for that document. (And save that to the database.)
+l.term_years = 3
+db.products.update({_id:l._id},l)
+//db.products.update({"_id" : ObjectId("507d95d5719dbef170f15c00")},{$set:{"term_years" : 3}})
+
+4.Then change over_rate for sms in limits to 0.01 from 0. Save that too.
+l.limits.sms.over_rate = 0.01
+db.products.update({_id:l._id},l)
+//db.products.update({"_id" : ObjectId("507d95d5719dbef170f15c00")},{$set:{limits:{sms:{over_rate : 0}}}})
+
+
