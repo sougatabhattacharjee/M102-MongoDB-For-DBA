@@ -1,0 +1,11 @@
+First, make a mini-backup of the collection before we start modifying it. In the shell:
+
+b = db.products_bak; db.products.find().forEach( function(o){ b.insert(o) } )
+ // check it worked: 
+b.count()
+// should print 11
+
+In the shell, type:
+
+homework.a()
+> 3.05
